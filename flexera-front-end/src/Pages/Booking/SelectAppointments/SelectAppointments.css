@@ -1,0 +1,367 @@
+.select_appointment_page {
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  padding-bottom: 30px;
+  background-image: url("../../../assets/images/Booking.png");
+}
+
+.select_appointment_StepperContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  margin: 31px 0 16px 0;
+}
+
+.white_container {
+  width: 60%;
+  background-color: white;
+  min-height: 500px;
+  height: max-content;
+  margin: 0 auto;
+  border-radius: 25px;
+  padding: 20px 60px;
+}
+
+.select_appointment_page_stepper_style {
+  width: 50%;
+}
+
+
+.error_sentance {
+  color: #e45050;
+  font-size: 17px;
+  margin-right: 10px;
+}
+
+.select_appointment_container {
+  width: 60%;
+  background-color: white;
+  min-height: 500px;
+  height: max-content;
+  margin: 0 auto;
+  border-radius: 25px;
+  padding: 20px 24px;
+}
+
+.back_btn {
+  border: 1px solid rgba(217, 217, 217, 1);
+  background-color: white;
+  padding: 10px;
+  border-radius: 50%;
+  color: black;
+  font-size: 15px;
+  cursor: pointer;
+  margin: 20px 0 0 0;
+}
+
+.select_appointment_doctor_info {
+  margin: 10% auto;
+  height: 70%;
+  font-family: 'Inter';
+  font-weight: 600;
+  color: #7E7E7E;
+  margin-bottom: 5px;
+}
+
+.fees_amount {
+  color: #590B8D;
+  font-weight: 700;
+}
+
+.select_appointment_doctor_rate {
+  background-color: rgba(255, 215, 142, 1);
+  width: max-content;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+
+
+.doctor_info {
+  font-size: 18px;
+  color: rgba(126, 126, 126, 1);
+  font-weight: 500;
+  font-family: "Quicksand", sans-serif;
+}
+
+.center_flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar_col {
+  border-left: 1px solid rgba(229, 229, 229, 1);
+  padding: 0 28px;
+  margin: 20px 0 0 0;
+}
+
+.calendar_info_container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.select_date_icon {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.calendar_icon {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.calendar_title {
+  font-size: 20px;
+  font-family: 'Quicksand';
+  font-weight: 600;
+}
+
+.calendar_container {
+  width: 100%;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  margin: 20px 0;
+  background-color: rgba(229, 229, 229, 0.5);
+}
+
+.slots_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.booked_slot {
+  border: 1px solid;
+  border-radius: 20px;
+  color: #767171;
+  font-size: 15px;
+  padding: 10px;
+  text-decoration: line-through;
+  font-family: 'Quicksand';
+  font-weight: 700;
+
+
+}
+
+.slot_style {
+  border: 1px solid;
+  border-radius: 20px;
+  color: #767171;
+  font-size: 15px;
+  padding: 10px;
+  font-family: 'Quicksand';
+  font-weight: 700;
+
+
+}
+
+.slot_style:hover {
+  color: rgba(120, 106, 200, 1);
+  border: 1px solid rgba(120, 106, 200, 1);
+  cursor: pointer;
+}
+
+.active_slot,
+.active_slot:hover {
+  font-size: 15px;
+  padding: 10px;
+  border-radius: 20px;
+  color: #786AC8;
+  border: 1px solid rgba(120, 106, 200, 1);
+  font-family: 'Quicksand';
+  font-weight: 700;
+}
+
+.select_appoitment_empty_result {
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  gap: 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  color: #a63e3e;
+  margin-top: 10px;
+}
+
+.select_appoitment_text {
+  margin: 0;
+  color: #786AC8;
+}
+
+.emlty_slots_icon {
+  color: #786AC8;
+}
+
+.select_appoitment_next_btn_container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 16px auto;
+}
+
+.doctor_name_div {
+  display: flex;
+  align-items: center;
+
+}
+
+.doctor_fees_div {
+  display: flex;
+  align-items: center;
+
+}
+
+.ant-steps-item-process .ant-steps-item-icon {
+  border: 1px solid #515BD4 !important;
+  background-color: white !important;
+  color: #515BD4 !important;
+}
+
+.ant-steps-item-active .ant-steps-item-icon-number {
+  font-size: 0;
+  width: 8px;
+  height: 8px;
+  background-color: #515BD4;
+  border-radius: 50%;
+}
+
+.ant-steps-item-finish .ant-wave-target {
+  background-color: #515BD4 !important;
+  color: white !important;
+}
+
+.ant-steps-item-wait .ant-steps-item-icon {
+  background-color: white !important;
+  border: 1px solid #515BD4 !important;
+
+}
+
+.ant-steps-item-wait .ant-steps-item-icon-number {
+  font-size: 0;
+  width: 8px;
+  height: 8px;
+  background-color: #515BD4;
+  border-radius: 50%;
+}
+
+.ant-steps-title-vertical>.ant-steps-item .ant-steps-item-rail {
+  border-color: white !important;
+  border-width: 1.5px;
+}
+
+.img_container_doctor_img {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.select_appointment_doctor_img {
+  max-width: 80%;
+  max-height: 100%;
+}
+
+.select_appoitment_page_next_btn {
+  color: white;
+  border: none;
+  width: 200px;
+  height: 50px;
+  font-size: 18px;
+  border-radius: 13px;
+  cursor: pointer;
+  background: rgba(120, 106, 200, 1);
+  background: linear-gradient(180deg,
+      rgba(120, 106, 200, 1) 0%,
+      rgba(91, 95, 156, 1) 73%);
+}
+
+.select_appoitment_page_next_btn:hover {
+  background: rgba(120, 106, 200, 1) !important;
+  background: linear-gradient(180deg,
+      rgba(120, 106, 200, 1) 0%,
+      rgba(91, 95, 156, 1) 73%) !important;
+  outline: none !important;
+  color: white !important;
+  border: none !important;
+}
+
+.ant-picker-calendar .ant-picker-cell-in-view.ant-picker-cell-selected:not(.ant-picker-cell-disabled) .ant-picker-cell-inner {
+  background: rgba(120, 106, 200, 1) !important;
+  background: linear-gradient(180deg,
+      rgba(120, 106, 200, 1) 0%,
+      rgba(91, 95, 156, 1) 73%) !important;
+  border-radius: 50% !important;
+}
+
+.ant-picker-calendar .ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner::before {
+  border: none !important
+}
+
+.dummy_user_image {
+  font-size: 116px;
+  color: #7e7e7e;
+}
+
+@media (max-width:992px) {
+
+  .select_appoitment_next_btn_container {
+    width: 94%;
+  }
+
+  .img_container_doctor_img {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .calendar_col {
+    border: none
+  }
+
+  .select_appointment_container {
+    width: 90%;
+    padding: 0 0 10px 0;
+  }
+
+  .select_appointment_doctor_info {
+    padding: 0 32px
+  }
+}
+
+@media (max-width:600px) {
+  .select_appointment_StepperContainer {
+    justify-content: flex-start;
+    margin: 15px 0 0 23px;
+    width: 90%;
+    display: none
+  }
+
+
+  .select_appointment_page {
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width:500px) {
+  .back_btn {
+    margin: 10px 0 0 10px;
+  }
+
+  .select_appoitment_next_btn_container {
+    width: 100%;
+    justify-content: center;
+  }
+
+}

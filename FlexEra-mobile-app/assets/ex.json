@@ -1,0 +1,74 @@
+{
+  "lower_left": [
+    {
+      "name": "Bending the knee without support while sitting",
+      "image": "assets/images/Bending the knee without support while sitting.png"
+    },
+    {
+      "name": "Bending the knee with support while sitting",
+      "image": "assets/images/Bending knee with support seated.png"
+    },
+    {
+      "name": "Lift the extended leg",
+      "image": "assets/images/Lift extended leg supine.png"
+    },
+    {
+      "name": "Bending the knee with bed support",
+      "image": "assets/images/Bending knee with bed support supine.png"
+    }
+  ],
+  "lower_right": [
+    {
+      "name": "Bending the knee without support while sitting",
+      "image": "assets/images/Bending the knee without support while sitting.png"
+    },
+    {
+      "name": "Bending the knee with support while sitting",
+      "image": "assets/images/Bending knee with support seated.png"
+    },
+    {
+      "name": "Lift the extended leg",
+      "image": "assets/images/Lift extended leg supine.png"
+    },
+    {
+      "name": "Bending the knee with bed support",
+      "image": "assets/images/Bending knee with bed support supine.png"
+    }
+  ],
+  "upper_left": [
+    {
+      "name": "Shoulder flexion",
+      "image": "assets/images/Shoulder flexion seated.png"
+    },
+    {
+      "name": "Horizontal weighted openings",
+      "image": "assets/images/Horizontal weighted openings.png"
+    },
+    {
+      "name": "External rotation of shoulders with elastic band",
+      "image": "assets/images/External rotation of shoulders with elastic band.png"
+    },
+    {
+      "name": "Circular pendulum",
+      "image": "assets/images/Circular pendulum.png"
+    }
+  ],
+  "upper_right": [
+    {
+      "name": "Shoulder flexion",
+      "image": "assets/images/Shoulder flexion seated.png"
+    },
+    {
+      "name": "Horizontal weighted openings",
+      "image": "assets/images/Horizontal weighted openings.png"
+    },
+    {
+      "name": "External rotation of shoulders with elastic band",
+      "image": "assets/images/External rotation of shoulders with elastic band.png"
+    },
+    {
+      "name": "Circular pendulum",
+      "image": "assets/images/Circular pendulum.png"
+    }
+  ]
+}

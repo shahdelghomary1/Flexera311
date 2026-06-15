@@ -1,0 +1,137 @@
+.check-page {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    background-color: #f5f3f9;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.check_email_title {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;
+    margin-top: 100px;
+    margin-bottom: 10px;
+}
+
+.check-text {
+    font-family: "Homemade Apple", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: #6434B7;
+    font-size: 56px;
+    line-height: 1;
+    transform: translateY(-6px);
+}
+
+.email-text {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 30px;
+    color: #3a3a3a;
+    position: relative;
+    transform: translateY(8px);
+}
+
+.check_email_description {
+    color: #4E4B4B;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Instrument Sans';
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.otp-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.otp-box {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    background-color: white;
+    transition: all 0.2s ease;
+}
+
+.otp-box:focus {
+    border-color: #8c5de3;
+    box-shadow: 0 0 5px rgba(140, 93, 227, 0.5);
+}
+
+.verify-btn {
+    background-image: linear-gradient(to right top, #5b5f9c, #6162a7, #6865b2, #7068bd, #786ac8);
+    color: white;
+    border: none;
+    padding: 20px 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+    width: 233px;
+    margin-top: 25px;
+}
+
+.verify-btn:hover,
+.verify-btn:active {
+    background-color: #7a6ef0 !important;
+    color: white !important;
+    border: none !important;
+}
+
+.resend-text {
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    background: linear-gradient(180deg, #9FBAF9, #590B8D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    cursor: pointer;
+
+}
+
+.ant-otp-input:active,
+.ant-otp-input:focus,
+.ant-otp-input:hover {
+    border-color: #7a6ef0 !important;
+    box-shadow: none;
+}
+
+/* Mobile (small screens) */
+@media (max-width: 600px) {
+    .check-text {
+        font-size: 33px;
+    }
+
+    .email-text {
+        font-size: 15px;
+    }
+
+    .email-input {
+        width: 60%;
+    }
+
+    .description {
+        font-size: 12px;
+    }
+
+    .resend-text {
+        font-size: 12px;
+    }
+
+}

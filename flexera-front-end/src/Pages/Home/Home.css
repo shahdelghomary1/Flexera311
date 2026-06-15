@@ -1,0 +1,11 @@
+.home_page {
+  /* background-color: pink; */
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+.title {
+  padding: 0;
+  margin: 0;
+}

@@ -1,0 +1,374 @@
+.about_us_container {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url('../../assets/images/About us.png');
+}
+
+.about_us_first_section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 88px;
+}
+
+.aboutus_info_section1 {
+    width: 50%;
+}
+
+.aboutus_section1_title {
+    font-family: 'Instrument Sans';
+    font-weight: 700;
+    font-size: 100px;
+    color: #363030;
+    margin-bottom: 0;
+}
+
+.aboutus_section1_desc {
+    font-family: 'Instrument Sans';
+    font-weight: 700;
+    font-size: 28px;
+    color: #383838;
+}
+
+.aboutus_image_section1 {
+    width: 30%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 70px;
+}
+
+.aboutUs_gif {
+    width: 350px;
+    height: 400px;
+    border-radius: 10%;
+    z-index: 999;
+}
+
+.rectangle1 {
+    width: 89%;
+    height: 97%;
+    border-radius: 10%;
+    position: absolute;
+    top: -43px;
+    left: -12%;
+    border: 2px solid #111111;
+}
+
+.rectangle2 {
+    width: 62%;
+    height: 84%;
+    border-radius: 10%;
+    position: absolute;
+    bottom: -34px;
+    right: -8%;
+    border: 2px solid #111111;
+}
+
+.mission_section {
+    position: relative;
+    width: max-content;
+    margin: 0 auto 42px;
+}
+
+.aboutus_mission_title {
+    font-family: 'Homemade Apple';
+    font-size: 80px;
+    color: #363030;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.arrow_img_whyus_container {
+    position: absolute;
+    bottom: -23px;
+    right: -37px;
+}
+
+.aboutus_mission_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+}
+
+.aboutus_mission_content {
+    width: 25%;
+    height: 300px;
+    padding: 30px;
+    border-radius: 13%;
+    background-color: transparent;
+    border: 1px solid #767171;
+    box-shadow: -1px 2px 5px 2px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: -1px 2px 5px 2px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: -1px 2px 5px 2px rgba(0, 0, 0, 0.25);
+
+}
+
+.mission_text {
+    font-family: 'Grandstander';
+    font-weight: 600;
+    font-size: 24px;
+    color: #363030;
+}
+
+.about_us_third_section {
+    margin-top: 96px;
+}
+
+.our-value-title {
+    font-family: "Homemade Apple", cursive;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 80px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    margin: 0 0 -5rem 0;
+    width: 483px;
+    height: 173px;
+    color: #333;
+    width: 100%;
+}
+
+.our-value-underline {
+    margin-bottom: 3rem;
+}
+
+.title_underline_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.our-value-box {
+    position: relative;
+    margin-bottom: 45px;
+    background-color: #590B8D52;
+    padding: 46px 0;
+}
+
+.our-value-text {
+    font-family: 'Instrument Sans';
+    font-weight: 600;
+    color: #363030;
+    font-size: 33px;
+    width: 80%;
+    margin: 0px auto 17px;
+}
+
+.star_image {
+    position: absolute;
+    width: 102px;
+    height: 129px;
+    z-index: 2;
+}
+
+.left_star {
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+    width: 84px;
+    height: 101px;
+}
+
+.right_star {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 102px;
+    height: 129px;
+}
+
+
+
+
+@media (max-width:1445px) {
+    .aboutus_mission_content {
+        height: 350px
+    }
+}
+
+
+
+@media (max-width:1445px) {
+    .aboutus_mission_content {
+        height: 350px;
+        width: 30%;
+    }
+
+    .aboutus_section1_title {
+        font-size: 90px;
+    }
+
+    .aboutUs_gif {
+
+        width: 250px;
+        height: 294px;
+    }
+}
+
+@media (max-width:992px) {
+
+    .about_us_first_section {
+        display: inline-block;
+        margin: 0 auto;
+        padding: 0 40px;
+    }
+
+    .aboutus_info_section1 {
+        width: 100%;
+    }
+
+    .aboutus_image_section1 {
+        width: 100%;
+        margin-top: 109px;
+    }
+
+    .aboutus_mission_title {
+        font-size: 76px;
+    }
+
+    .aboutus_mission_container {
+        display: inline-block;
+    }
+
+    .aboutus_mission_content {
+        height: 300px;
+        width: 50%;
+        margin: 0 auto 50px;
+
+    }
+
+    .rectangle1 {
+        width: 37%;
+        height: 95%;
+        border-radius: 10%;
+        position: absolute;
+        top: -43px;
+        left: 24%;
+    }
+
+    .rectangle2 {
+        width: 33%;
+        height: 84%;
+        bottom: -34px;
+        right: 22%;
+    }
+
+    .right_star {
+        position: absolute;
+        top: 20px;
+        right: 4px;
+        width: 60px;
+        height: 59px;
+    }
+
+    .left_star {
+        width: 49px;
+        height: 50px;
+    }
+}
+
+@media (max-width:720px) {
+    .aboutus_mission_content {
+        width: 70%;
+    }
+
+    .aboutUs_gif {
+        width: 238px;
+        height: 253px;
+    }
+
+    .our-value-text {
+        font-size: 24px;
+    }
+
+    .right_star {
+        position: absolute;
+        top: 20px;
+        right: 4px;
+        width: 50px;
+        height: 49px;
+    }
+
+    .left_star {
+        width: 39px;
+        height: 40px;
+    }
+}
+
+@media (max-width:560px) {
+    .aboutus_section1_title {
+        font-size: 60px;
+    }
+
+    .why_us_separator {
+        width: 90%;
+    }
+
+    .aboutus_section1_desc {
+        font-size: 20px;
+    }
+
+    .aboutus_mission_title {
+        font-size: 46px;
+    }
+
+    .arrow_img_whyus {
+        width: 65px;
+    }
+
+    .aboutus_mission_content {
+        width: 80%;
+    }
+
+    .aboutus_mission_content {
+        height: 215px;
+    }
+
+    .mission_text {
+        font-size: 18px;
+    }
+
+    .our-value-title {
+        font-size: 48px;
+    }
+
+    .our-value-underline {
+        width: 70%;
+    }
+
+    .our-value-text {
+        font-size: 16px;
+    }
+
+    .right_star {
+        position: absolute;
+        top: 20px;
+        right: 4px;
+        width: 50px;
+        height: 49px;
+    }
+
+    .left_star {
+        width: 39px;
+        height: 40px;
+    }
+
+    .rectangle1 {
+        width: 63%;
+        height: 97%;
+        top: -43px;
+        left: 0%;
+    }
+
+    .rectangle2 {
+        width: 47%;
+        height: 84%;
+        bottom: -34px;
+        right: 8%;
+    }
+
+}

@@ -1,0 +1,20 @@
+.LoginWithGoogleContainer {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.nsm7Bb-HzV7m-LgbsSe {
+    width: 100% !important;
+}
+
+.S9gUrf-YoZ4jf {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+@media (max-width:922px) {
+    .LoginWithGoogleContainer {
+        width: 90%;
+    }
+}

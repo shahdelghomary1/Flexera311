@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "145334392661",
+    "project_id": "flexera-477717",
+    "storage_bucket": "flexera-477717.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:145334392661:android:5666be11e5a617f97c81dc",
+        "android_client_info": {
+          "package_name": "com.example.flexera"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "145334392661-6vije1dfui4i5jk2vpq92ipb9qhr6baj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flexera",
+            "certificate_hash": "13d42fa7ba4b41dbec23809120f3a1ddb813f17c"
+          }
+        },
+        {
+          "client_id": "145334392661-5rjoo4ukvqgo7ckueasn2l27d09bd2hj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtnZH1H_5uQg5PLWmdB2EUEXX6E7KY0VE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "145334392661-5rjoo4ukvqgo7ckueasn2l27d09bd2hj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "145334392661-9b5tpa6ug45ikrc92eoidbuqmtjoabgt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flexera"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,116 @@
+.doctors_sectiom {
+  width: 88%;
+  padding: 13px 40px;
+  background-color: white;
+}
+
+.image_cell {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+
+.table_user_img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  /* background: pink; */
+}
+
+.ant-table-cell-row-hover .deleteIcon {
+  color: red;
+}
+
+.ant-table-thead .ant-table-cell {
+  font-family: 'Poppins' !important;
+  font-weight: 500 !important;
+  color: #6E6D6F !important;
+  background: transparent !important;
+  border: 1px solid;
+  border-image: linear-gradient(45deg, #590B8D, #6B48FF) 1;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+}
+
+
+.ant-table-thead .ant-table-cell::before {
+  display: none !important;
+}
+
+
+.ant-table-tbody .ant-table-cell {
+  font-family: 'Poppins' !important;
+  font-weight: 500 !important;
+  color: #292D32 !important;
+  border: 1px solid;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+  border-image: linear-gradient(to right top,
+      #590b8d,
+      #621ba8,
+      #682ac4,
+      #6b39e1,
+      #6b48ff) 1;
+
+}
+
+.ant-table-cell .deleteIcon {
+  font-size: 17px;
+}
+
+
+.ant-table-cell-row-hover .deleteIcon {
+  color: red;
+}
+
+.ant-table-cell .editIcon {
+  font-size: 17px;
+}
+
+.ant-table-cell-row-hover .editIcon {
+  color: rgba(52, 199, 89, 1);
+}
+
+.ant-pagination .ant-pagination-item-active {
+  border-color: #B0B0B0 !important;
+}
+
+.ant-pagination .ant-pagination-item-active a {
+  color: #454545 !important
+}
+
+.addMember {
+  background-color: #6B48FF;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 12px;
+  gap: 5px;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans';
+  font-weight: 700;
+}
+
+.delete_doctor_modal .ant-modal-title {
+  padding: 20px 20px 0 20px !important;
+}
+
+.delete_doctor_modal .ant-modal-body {
+  padding: 0 20px !important;
+}
+
+.delete_doctor_modal .ant-modal-footer {
+  padding: 0 20px 20px 0 !important;
+}
+
+@media (max-width:500px) {
+  .doctors_sectiom {
+    width: 90vw;
+    padding: 13px 10px;
+  }
+}

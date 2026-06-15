@@ -1,0 +1,107 @@
+.forgot-page {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  background-color: #f5f3f9;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.enter_email_title {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 10px;
+  margin-top: 55px;
+  margin-bottom: 10px;
+}
+
+.forgot-text {
+  font-family: "Homemade Apple", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color: #6434B7;
+  font-size: 56px;
+  position: relative;
+  top: 10px;
+}
+
+.password-text {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 56px;
+  color: #3a3a3a;
+  position: relative;
+  top: -5px;
+}
+
+.enter_email_description {
+  color: #4E4B4B;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  font-family: 'Instrument Sans';
+}
+
+.email-input {
+  width: 325px;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 14px;
+  outline: none;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.enter_email_send_btn {
+  background-image: linear-gradient(to right top, #5b5f9c, #6162a7, #6865b2, #7068bd, #786ac8);
+  color: white;
+  border: none;
+  padding: 20px 30px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+  width: 233px;
+}
+
+.enter_email_send_btn:hover,
+.enter_email_send_btn:active {
+  background-color: #7a6ef0 !important;
+  color: white !important;
+  border: none !important;
+}
+
+.missingEmail {
+  color: red;
+  margin: 0px 0 10px 0;
+  font-family: "Quicksand", sans-serif;
+
+}
+
+
+/* Mobile (small screens) */
+@media (max-width: 600px) {
+  .forgot-text {
+    font-size: 33px;
+  }
+
+  .password-text {
+    font-size: 15px;
+  }
+
+  .email-input {
+    width: 83%;
+  }
+
+  .description {
+    font-size: 12px;
+  }
+
+  .enter_email_send_btn {
+    width: 200px;
+  }
+}

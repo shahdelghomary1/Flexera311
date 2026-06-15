@@ -1,0 +1,83 @@
+{
+  "exercises": [
+    {
+      "name": "Bending the knee with support while sitting",
+      "image": "assets/images/Bending knee with support seated.png",
+      "steps": [
+        "Sit upright on a chair, keeping your back straight.",
+        "Keep your foot on a support like a footrest or the ground.",
+        "Bend your knee by pulling your heel backward slowly to activate hamstrings.",
+        "Return slowly to the starting position."
+      ]
+    },
+    {
+      "name": "Lift the extended leg",
+      "image": "assets/images/Lift extended leg supine.png",
+      "steps": [
+        "Lie on your back on a firm, flat surface.",
+        "Bend one knee and place that foot flat on the ground.",
+        "Keep the other leg straight and tighten the thigh muscles.",
+        "Slowly lift the straight leg to the height of the bent knee.",
+        "Hold for a few seconds, then lower slowly with control."
+      ]
+    },
+    {
+      "name": "Bending the knee with bed support",
+      "image": "assets/images/Bending knee with bed support supine.png",
+      "steps": [
+        "Lie on your back on a bed or flat surface.",
+        "Place a pillow or rolled towel under your knee.",
+        "Slowly bend your knee, bringing your heel toward your buttocks.",
+        "Hold for a few seconds, then return to starting position."
+      ]
+    },
+    {
+      "name": "Bending the knee without support while sitting",
+      "image": "assets/images/Bending the knee without support while sitting.png",
+      "steps": [
+        "Sit upright on a stable chair or bench with your back straight.",
+        "Slowly lift one leg until your knee is almost fully extended, without letting it rest on anything.",
+        "Lower the leg back down slowly to the starting position."
+      ]
+    },
+    {
+      "name": "Shoulder flexion",
+      "image": "assets/images/Shoulder flexion seated.png",
+      "steps": [
+        "Stand or sit upright with your back straight.",
+        "Raise your arm forward and upward while keeping it straight.",
+        "Lift as high as comfortable without pain.",
+        "Lower slowly back to the starting position."
+      ]
+    },
+    {
+      "name": "Horizontal weighted openings",
+      "image": "assets/images/Horizontal weighted openings.png",
+      "steps": [
+        "Sit or stand upright holding a light weight.",
+        "Raise your arm to the side at shoulder height.",
+        "Slowly open and close your arm horizontally like a door.",
+        "Lower slowly to the starting position."
+      ]
+    },
+    {
+      "name": "External rotation of shoulders with elastic band",
+      "image": "assets/images/External rotation of shoulders with elastic band.png",
+      "steps": [
+        "Hold an elastic band with both hands, elbows bent at 90 degrees.",
+        "Pull your hand outward, rotating the shoulder.",
+        "Return slowly to the starting position."
+      ]
+    },
+    {
+      "name": "Circular pendulum",
+      "image": "assets/images/Circular pendulum.png",
+      "steps": [
+        "Lean forward with one hand supported on a table.",
+        "Let your other arm hang relaxed.",
+        "Move the arm in small circular motions clockwise and counterclockwise.",
+        "Continue for 20-30 seconds."
+      ]
+    }
+  ]
+}

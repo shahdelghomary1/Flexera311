@@ -1,0 +1,421 @@
+.signin-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../assets/images/login.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+}
+
+.login-card {
+  background: white;
+  border-radius: 45px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+  padding: 30px 50px;
+  width: 30%;
+  height: max-content;
+  text-align: center;
+}
+
+
+.input-box input:focus {
+  border-color: #8350c3;
+  box-shadow: 0 0 3px #8350c3;
+
+}
+
+.signin_logo_title {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 30px;
+  margin: 0 0 17px 0px;
+  position: relative;
+  width: 100%;
+  height: 109px;
+}
+
+.signin_logo-text {
+  font-family: "Homemade Apple", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color: #6434B7;
+  font-size: 50px;
+  margin: 0;
+  position: absolute;
+  top: 0%;
+  left: 18%;
+}
+
+.signin_logo_text_2 {
+  font-family: 'Quicksand';
+  font-weight: 700;
+  font-size: 39px;
+  margin: 0;
+  position: absolute;
+  top: 56%;
+  left: 37%;
+}
+
+.tab-buttons {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 18px auto;
+  background: #f2f2f2;
+  border-radius: 15px;
+  padding: 4px;
+}
+
+.tab-buttons button {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 15px;
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.tab-buttons .active {
+  color: black;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.signin_form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.input-box {
+  position: relative;
+}
+
+.signin_input {
+  width: 100%;
+  background-color: white;
+  margin: 5px;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.input-box input:focus {
+  border-color: #8b5cf6;
+}
+
+.pass-cont {
+  position: relative;
+}
+
+.signIn_password_toggle {
+  position: absolute;
+  right: 13%;
+  top: 40%;
+}
+
+.password-input {
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.password-input:focus {
+  border-color: #8c5de3;
+  box-shadow: 0 0 8px rgba(140, 93, 227, 0.12);
+}
+
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: #3a3a3a;
+  cursor: pointer;
+  font-size: 18px;
+  transition: color 0.2s;
+}
+
+.eye-icon:hover {
+  color: #6f3edb;
+}
+
+.signin_options {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  font-size: 14px;
+}
+
+.signin_options a {
+  text-decoration: none;
+  color: #8b5cf6;
+}
+
+.roles {
+  display: flex;
+  justify-content: center;
+  gap: 75px;
+  font-size: 14px;
+}
+
+.roles label {
+  font-family: 'Instrument Sans';
+  font-weight: 600;
+  color: #4A4A4A;
+}
+
+.login-btn {
+  border: none;
+  color: white;
+  padding: 22px 12px;
+  font-size: 18px;
+  font-family: 'Quicksand';
+  margin: 15px 15px 0px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+  width: 70%;
+  background-image: linear-gradient(to right top, #5b5f9c, #6162a7, #6865b2, #7068bd, #786ac8);
+}
+
+.login-btn:hover {
+  opacity: 0.9;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 0;
+  color: #777;
+}
+
+.divider hr {
+  flex: 1;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+.signin_google_btn {
+  border: 1px solid #8b5cf6;
+  background: white;
+  color: #444;
+  gap: 8px;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+}
+
+.signin_google_btn img {
+  width: 32px;
+  height: 32px;
+}
+
+.signin_google_btn:hover {
+  background: #f7f5ff;
+}
+
+.error_style {
+  color: rgb(208, 67, 67);
+  margin: 5px 0;
+}
+
+
+.container {
+  width: 100%;
+  padding: 20px;
+  background: lightblue;
+  font-size: 18px;
+}
+
+.signup_hint_container {
+  cursor: pointer;
+}
+
+.signin_hint {
+  font-family: 'Quicksand';
+  font-weight: 600;
+  background: linear-gradient(180deg, #9FBAF9, #590B8D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.signin_forgetpassword_link {
+  font-family: 'Inter';
+  color: #000000 !important;
+  font-weight: 500;
+}
+
+.signin_forgetpassword {
+  width: 50%;
+  text-align: right;
+}
+
+.signin_remember_me {
+  width: 50%;
+  text-align: left;
+}
+
+.signin_remember_me label {
+  color: #4A4A4A;
+  font-family: 'Instrument Sans';
+  font-weight: 500;
+}
+
+.terms {
+  font-family: 'Instrument Sans';
+  font-weight: 500;
+  color: #747171;
+  font-size: 12px;
+
+}
+
+.login-btn:focus,
+.login-btn:hover,
+.login-btn:active {
+  border-color: transparent !important;
+  color: white !important;
+}
+
+
+@media (max-width:800px) {
+
+  .signin_logo_text_2 {
+    top: 48%;
+    left: 37%;
+    font-size: 30px;
+  }
+}
+
+/* Mobile (small screens) */
+@media (max-width: 600px) {
+  .login-card {
+    width: 80%;
+    padding: 20px 32px;
+
+  }
+
+  .signin_logo_title {
+    font-size: 15px;
+  }
+
+  .signin_logo-text {
+    font-size: 30px;
+  }
+
+  .signin_input {
+    width: 87%;
+  }
+
+  .signin_options {
+    display: block;
+  }
+
+  .signin_remember_me {
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .signin_forgetpassword {
+    width: 100%;
+    text-align: center;
+
+  }
+
+  .login-btn {
+    width: 97%;
+  }
+
+  .signin_google_btn {
+    width: 97%;
+  }
+
+
+}
+
+/* Tablet */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .login-card {
+    width: 45%;
+  }
+
+  .signin_options {
+    display: block;
+  }
+
+  .signin_remember_me {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .signin_forgetpassword {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Large Tablet */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .signup-card {
+    width: 45%;
+  }
+
+  .login-card {
+    padding: 16px 50px;
+  }
+
+  .signup_logo_title {
+    font-size: 20x;
+  }
+
+  .signin_logo-text {
+    font-size: 40px;
+  }
+
+  .signin_logo_text_2 {
+    font-size: 30px;
+  }
+
+  .signin_options a,
+  .signin_remember_me {
+    font-size: 12px;
+  }
+
+  .signin_logo_title {
+    margin-bottom: 0;
+  }
+
+  .login-btn {
+    margin: 11px 15px 2px 15px;
+  }
+}

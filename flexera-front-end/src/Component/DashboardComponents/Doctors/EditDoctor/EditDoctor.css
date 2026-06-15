@@ -1,0 +1,101 @@
+.doctor_action_container {
+  padding-bottom: 23px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("../../../../assets/images/bgmodal.png");
+}
+
+.doctor_action_logo {
+  width: 150px;
+  padding: 10px 25px 10px 25px;
+}
+
+.ant-modal .ant-modal-container {
+  padding: 0 !important;
+}
+
+.doctor_action_title {
+  margin: -20px;
+  font-size: 28px;
+  color: rgba(36, 39, 49, 1);
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  padding: 0px 61px;
+}
+
+.doctor_action_subtitle {
+  color: rgba(87, 95, 110, 1);
+  font-size: 15px;
+  padding: 0px 40px;
+  margin: 0;
+  margin-top: 18px;
+
+}
+
+.doctor_action_form_container {
+  background-color: white;
+  margin: 24px auto 21px auto;
+  width: 70%;
+  padding: 20px 30px;
+  border-radius: 10px;
+}
+
+.doctor_action_form_container_title {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(36, 39, 49, 1);
+  margin: 0;
+}
+
+.doctor_action_form_container_subtitle {
+  color: rgba(36, 39, 49, 1);
+  font-weight: 300;
+  font-size: 16px;
+  margin: 0;
+}
+
+.submit_btn_style_div {
+  width: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit_btn_style {
+  font-family: 'Quicksand';
+  font-weight: 600;
+  color: 'white';
+  padding: 18px 40px;
+  background-image: linear-gradient(to right top, #786ac8, #7068bd, #6865b2, #6162a7, #5b5f9c);
+}
+
+.ant-form-item-required {
+  width: 100% !important;
+}
+
+.ant-form-item-required::before {
+  display: none !important;
+}
+
+
+.ant-form-item-row,
+.ant-form-item-horizontal .ant-form-item-control {
+
+  width: 100% !important;
+}
+
+
+@media (max-width:500px) {
+  .doctor_action_title {
+    font-size: 28px;
+  }
+
+  .doctor_action_form_container {
+    width: 70%;
+  }
+
+  .doctor_action_container {
+    padding-bottom: 20px;
+  }
+}

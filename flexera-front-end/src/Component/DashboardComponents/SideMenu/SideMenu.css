@@ -1,0 +1,113 @@
+.dashboard_sidemenu_contianer {
+  background-image: url('../../../assets/images/sidemenuBG.png');
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.dashboard_logo_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard_logo {
+  width: 185px;
+}
+
+.dashboard_info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30vh;
+  margin-bottom: 30vh;
+  gap: 30px;
+}
+
+.dashboard_info_img_container {}
+
+.dashboard_info_img {
+  width: 60px;
+}
+
+.dashboard_info_title {
+  color: rgba(172, 172, 172, 1);
+  font-size: 15px;
+  margin: 0;
+
+}
+
+.sidemenu_title {
+  font-family: 'Poppins';
+  color: #464448;
+  margin: 0;
+}
+
+.total_patients {
+  font-family: 'Poppins';
+  font-weight: 600;
+  color: #333333;
+  font-size: 32px;
+  margin: 0;
+}
+
+.logout_container {
+  padding-right: 41px;
+  padding-left: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+
+}
+
+.logout_text {
+  text-align: left;
+  font-family: "Instrument Sans";
+  font-size: 20px;
+  font-weight: 500;
+  color: #590B8D;
+  margin: 0;
+}
+
+
+.ant-tabs .ant-tabs-tab-btn {
+  color: #000000 !important;
+  font-weight: 500 !important;
+  padding: 0;
+}
+
+.ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #000000 !important;
+  font-weight: 500 !important;
+}
+
+@media (max-width:1200px) {
+
+  .dashboard_logo {
+    width: 133px;
+  }
+
+  .dashboard_info_img {
+    width: 40px;
+  }
+
+  .dashboard_info p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width:992px) {
+
+  .dashboard_logo {
+    width: 133px;
+  }
+
+  .dashboard_info_img {
+    width: 40px;
+  }
+
+  .dashboard_info p {
+    font-size: 15px;
+  }
+}

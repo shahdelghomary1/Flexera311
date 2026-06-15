@@ -1,0 +1,109 @@
+.dashboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard_sidemenu {
+  width: 20%;
+  background-color: white;
+  height: 100vh;
+}
+
+.dashboard_content {
+  width: 80%;
+  height: 100vh;
+  background-color: rgb(244, 242, 247);
+  padding-left: 60px;
+  margin-left: ;
+}
+
+.welcoming_container {
+  position: relative;
+  margin: 24px 0 16px 0;
+}
+
+.sub_welcoming_container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 46%;
+  left: 6%;
+}
+
+.welcome_style {
+  font-family: "Homemade Apple";
+  font-weight: 400;
+  color: rgba(120, 106, 200, 1);
+  margin: 0;
+}
+
+.back_style {
+  font-family: "Instrument Sans";
+  font-weight: 500;
+  color: rgb(98, 97, 99);
+  margin-right: 5px;
+}
+
+.ant-tabs-tab {
+  padding: 20px 32px !important;
+  border-left: 12px;
+  border-right: 12px;
+  margin: 0;
+  box-shadow: inset 1px 3px 4px rgba(0, 0, 0, 0.35);
+}
+
+.ant-tabs-nav {
+  margin: 0 !important
+}
+
+.ant-tabs-tab:hover {
+  color: black !important;
+}
+
+.ant-tabs-tab-active {
+  color: black !important;
+}
+
+.small_screen_header {
+  display: none;
+}
+ .ant-tabs-tab-active {
+  box-shadow: none !important;
+}
+
+@media (max-width:992px) {
+  .dashboard_sidemenu {
+    display: none;
+  }
+
+  .small_screen_header {
+    display: inline-block;
+  }
+
+  .dashboard_content {
+    width: 100%;
+    padding-left: 26px;
+  }
+
+  .dashboard_search_bar_container {
+    width: 250px;
+  }
+
+
+}
+
+@media (max-width:500px) {
+  .action_container {
+    display: inline-block;
+  }
+
+  .addMember {
+    margin-bottom: 16px;
+  }
+
+  .doctors_sectiom {
+    width: 90vw;
+    padding: 13px 10px;
+  }
+}
