@@ -1,0 +1,7 @@
+tunnel: flexera-api
+credentials-file: C:\Users\shahd\.cloudflared\77b66c39-c042-46af-8528-2b6387f2972e.json
+
+ingress:
+  - hostname: api.flexera.com
+    service: http://localhost:8000
+  - service: http_status:404

@@ -1,0 +1,241 @@
+4.3 FastAPI Implementation Architecture
+
+4.3.1 System Overview
+
+The Flexera AI system is built as a high-performance Python microservice using FastAPI, specifically designed for real-time exercise validation and physiotherapy guidance. The system processes video frames from Flutter mobile clients and provides immediate feedback on exercise form, repetition counting, and corrective instructions.
+
+4.3.2 FastAPI Server Architecture
+
+The main API server (api_server.py) implements a comprehensive RESTful interface with the following core components:
+
+**Core Technologies:**
+- FastAPI framework for asynchronous HTTP handling
+- YOLOv8n-Pose for real-time pose detection
+- OpenCV for image processing
+- WebSocket support for real-time communication
+- CORS middleware for cross-platform Flutter integration
+
+**API Endpoints Structure:**
+- `/docs` - Interactive API documentation (Swagger UI)
+- `/redoc` - Alternative documentation interface
+- `/exercises` - Exercise catalog and metadata
+- `/analyze-frame` - Single frame analysis endpoint
+- `/start-session` - Initialize exercise session
+- `/websocket` - Real-time bidirectional communication
+
+
+
+4.3.3 Simplified Exercise API
+
+A streamlined implementation (exercise_api.py) provides a simplified interface focused on core functionality:
+
+**Design Philosophy:** "Choose Exercise → Press Button → Open Camera → Exercise → Get Numbers"
+
+**Key Features:**
+- Minimal configuration required
+- Direct Flutter integration
+- Real-time pose analysis
+- Automatic repetition counting
+- Exercise validation feedback
+
+4.3.4 Comprehensive Backend Architecture
+
+## Complete Function and Class Documentation
+
+### **📁 api_server.py - Main FastAPI Server**
+
+**Core Classes:**
+- **ExerciseSession**: Manages individual user exercise sessions
+  - `__init__(exercise_id, user_id, target_sets, target_reps)`: Initialize session with exercise metadata
+  - `reset_set()`: Reset repetition counter for next set
+  - `reset_all()`: Reset entire session from beginning
+  - `check_set_complete()`: Check if current set target reached
+  - `advance_set()`: Move to next set or mark complete
+  - `to_dict()`: Convert session data to JSON-serializable dictionary
+
+**Pydantic Models:**
+- **SessionStartRequest**: Exercise session initialization data
+- **FrameProcessResponse**: Real-time frame analysis results
+- **ExerciseDetailResponse**: Complete exercise information with rules
+- **HealthResponse**: Server status and diagnostics
+
+**Core Functions:**
+- **load_model()** `@app.on_event("startup")`: Initialize YOLOv8n-pose model on server startup
+- **decode_base64_frame(image_base64)**: Convert base64 string to OpenCV image array
+- **run_pose_and_validate(frame, session)**: Execute pose detection and exercise validation pipeline
+- **build_frame_response(session, raw)**: Construct Flutter-compatible response
+
+**API Endpoints:**
+- **GET /** : Root health check endpoint
+- **GET /health**: Detailed server status with model state
+- **GET /exercises**: List all 16 exercises with Flutter-compatible metadata
+- **GET /exercises/category/{category}**: Filter exercises by body region
+- **GET /exercises/{exercise_id}**: Detailed exercise information with rules
+- **POST /session/start**: Initialize new exercise session
+- **GET /session/{session_key}**: Get current session progress
+- **POST /session/{session_key}/next-set**: Manual set advancement
+- **POST /session/{session_key}/reset**: Reset session to beginning
+- **DELETE /session/{session_key}**: End and remove session
+- **POST /process**: Single frame processing endpoint
+- **WebSocket /ws/{session_key}**: Real-time frame streaming
+
+### **📁 exercise_api.py - Simplified API**
+
+**Simplified Classes:**
+- **Exercise**: Basic exercise metadata model
+- **ExerciseResult**: Real-time analysis results for Flutter
+
+**Core Functions:**
+- **startup_event()**: Load YOLO model and initialize server
+- **get_all_exercises()**: Return 16 exercise catalog
+- **start_exercise(request)**: Initialize single global session
+- **process_camera_frame(request)**: Process base64 frames from Flutter camera
+- **get_current_stats()**: Return final exercise statistics
+- **stop_exercise()**: End session and clear global state
+
+**Helper Functions:**
+- **_get_category(exercise_key)**: Classify exercise as upper/lower body
+- **_get_side(exercise_key)**: Determine left/right laterality
+
+### **📁 exercise_validator.py - AI Validation Engine**
+
+**Core Enums and Data Classes:**
+- **ExerciseState**: Movement states (IDLE, MIN_POSITION, TRANSITION, MAX_POSITION, INVALID)
+- **JointAngleRule**: Angle validation rules for specific joints
+- **ExerciseRule**: Complete exercise definition with primary/secondary joints
+- **ValidationResult**: Frame validation output with angle and rep data
+
+**Core Classes:**
+- **ExerciseValidator**: Single-side exercise validation
+  - `__init__(exercise_key, confidence_threshold)`: Initialize with specific exercise rules
+  - `calculate_angle(point_a, point_b, point_c)`: Compute joint angle using vector mathematics
+  - `check_keypoint_confidence(keypoints, indices)`: Verify keypoint detection quality
+  - `get_side_adjusted_indices(side)`: Map keypoint indices for left/right sides
+  - `validate_angle(angle)`: Check if angle within exercise range
+  - `update_state_machine(angle, side)`: Track repetition completion states
+  - `validate_frame(keypoints, side)`: Main validation logic for single frame
+  - `reset()`: Reset all counters and state
+
+- **MultiSideValidator**: Bilateral exercise validation wrapper
+  - `__init__(exercise_key, confidence_threshold)`: Initialize left and right validators
+  - `validate_frame(keypoints)`: Validate both sides simultaneously
+  - `get_total_reps()`: Combined repetition count
+  - `reset()`: Reset both side validators
+
+**Utility Functions:**
+- **get_exercise_list()**: Return all available exercise keys
+- **get_exercise_info(exercise_key)**: Detailed exercise information
+
+### **📁 exercise_correction.py - Error Detection System**
+
+**Main Class:**
+- **ExerciseCorrection**: Real-time error detection and feedback
+  - `__init__(voice_enabled, cooldown, voice_gender)`: Initialize with voice feedback system
+  - `detect_errors(exercise_name, joint_angles, current_rep_state, is_valid_motion, side)`: Analyze movement for form errors
+  - `generate_recommendation(errors)`: Priority-based error message selection
+  - `provide_feedback()`: Complete feedback generation pipeline
+  - `enable_voice()/disable_voice()`: Voice feedback control
+  - `reset()`: Clear all tracking data
+  - `get_statistics()`: Error analytics
+
+**Factory Function:**
+- **create_correction(voice_enabled, cooldown, voice_gender)**: Simplified correction system creation
+
+**Error Detection Logic:**
+- **Motion Analysis**: Angle variance tracking for movement detection
+- **Speed Validation**: Minimum repetition duration enforcement
+- **Range Checking**: Primary and secondary joint angle validation
+- **State Consistency**: Movement completion verification
+
+### **📁 voice_feedback.py - Audio Guidance System**
+
+**Main Class:**
+- **VoiceFeedback**: Text-to-speech feedback engine
+  - `__init__(rate, volume, cooldown, voice_gender)`: Initialize TTS with configurable parameters
+  - `_set_voice_gender(gender)`: Select appropriate system voice
+  - `set_voice(gender)`: Runtime voice switching
+  - `list_available_voices()`: Display all system voices
+  - `speak(text, force)`: Thread-safe speech with cooldown protection
+  - `_speak_thread(text)`: Background speech execution
+  - `enable()/disable()`: Voice control
+  - `clear_cooldown()`: Reset message timing
+  - `stop()`: Emergency speech termination
+
+**Voice Features:**
+- **Gender Selection**: Female/male voice preference
+- **Cooldown Protection**: Prevent message spam
+- **Thread Safety**: Non-blocking speech execution
+- **System Integration**: Cross-platform TTS compatibility
+
+### **📁 exercise_rules.py - Exercise Definitions**
+
+**Data Structures:**
+- **ErrorDetection**: Error information dataclass
+- **EXERCISE_CAMERA_CONFIG**: Camera positioning guidance
+- **EXERCISE_RULES**: Complete exercise rule definitions
+- **EXERCISE_INSTRUCTIONS**: User-friendly exercise descriptions
+
+**Exercise Configuration:**
+- **16 Exercise Types**: Complete lower/upper body exercise catalog
+- **Angle Ranges**: Statistically-derived movement boundaries
+- **Error Conditions**: Lambda-based validation rules
+- **Camera Guidance**: Positioning hints for optimal detection
+
+4.3.5 Data Flow Architecture
+
+**Complete Processing Pipeline:**
+
+```
+1. Flutter Camera → Base64 Encoding → HTTP POST
+2. FastAPI → decode_base64_frame() → OpenCV Image
+3. YOLOv8 → pose_model(frame) → 17 Keypoints
+4. ExerciseValidator → calculate_angle() → Joint Angles
+5. State Machine → update_state_machine() → Rep Counting
+6. Error Detection → detect_errors() → Form Validation
+7. Voice Feedback → speak() → Audio Guidance
+8. Response Building → build_frame_response() → JSON
+9. Flutter UI → Real-time Overlay → User Feedback
+```
+
+**Session Management Flow:**
+
+```
+1. POST /session/start → ExerciseSession Creation
+2. WebSocket /ws/{key} → Real-time Communication
+3. Frame Processing → run_pose_and_validate()
+4. Auto Set Advancement → check_set_complete()
+5. Exercise Completion → advance_set()
+6. DELETE /session/{key} → Cleanup
+```
+
+4.3.6 AI Processing Pipeline
+
+
+
+The AI component of Flexera is implemented as a dedicated Python microservice built on FastAPI, deliberately separated from the Node.js business logic layer to prevent computationally intensive inference from blocking user-facing operations such as scheduling and payment processing.
+
+The pose estimation pipeline is built on YOLOv8n-Pose, the nano variant of Ultralytics' YOLOv8 architecture, which detects 17 anatomical keypoints per video frame using the COCO keypoint schema. The nano variant was selected for its optimized balance between inference speed and accuracy, enabling real-time processing without requiring dedicated GPU hardware on the server.
+Joint angles are computed from fixed keypoint triplets specific to each exercise type. For each triplet — defined as three anatomical landmarks where the middle point is the joint of interest — the angle is calculated using the dot product of the two vectors formed by the surrounding points. The 16 supported exercises are grouped by joint type.
+Rather than relying on clinically prescribed angle ranges from literature, the system derives its correction thresholds empirically from the UCO Physical Rehabilitation Dataset. The calibration process ran YOLOv8n-Pose across camera 2 videos for all 27 subjects, sampling every 5 frames at a keypoint confidence threshold of 0.5. For each exercise, the 5th and 95th percentiles of the observed angle distribution were computed across all subjects and expanded by a margin to produce a statistically grounded valid range.
+
+4.4.4 AI Engine
+
+
+
+The AI engine is composed of three tightly integrated modules that operate sequentially to analyze movement and generate feedback.
+
+The ExerciseValidator loads the calibrated minimum and maximum angle thresholds for a specified exercise and evaluates each incoming frame against the valid range. 
+The correction module generates a directional corrective instruction when a deviation is detected — for example, instructing the patient to extend the knee further or reduce shoulder elevation — rather than producing a binary pass/fail signal. 
+The repetition counter tracks the angle trajectory across frames to detect completed movement cycles, incrementing the rep count when the joint completes a full range-of-motion excursion within the valid bounds. Together, these modules return a structured response to the Flutter client containing the current angle, the target range, the corrective message if applicable, and the updated repetition count.
+
+4.5.4 AI Challenges and Constraints 
+Challenge: Deriving Correction Thresholds Without Clinical Ground Truth. Establishing what constitutes a correct joint angle for each exercise without access to per-patient clinical prescriptions presented a significant design challenge. Hardcoding values from published range-of-motion norms risked being too rigid for the natural variation observed across patients.
+Resolution: A data-driven calibration script was developed that processed the UCO dataset across all 27 subjects to derive exercise-specific angle ranges statistically.the thresholds reflect realistic population-level movement variation rather than idealized clinical values, making the correction logic both robust and generalizable.
+Challenge: Keypoint Visibility in Supine Exercises. For exercises performed lying down, such as the bed-support knee bends and extended leg lifts, standard camera angles caused critical keypoints to be occluded or fall outside the model's confidence threshold, producing unreliable angle readings.
+Camera Positioning and Patient Alignment Requirements
+To ensure reliable keypoint detection and accurate angle computation, the system imposes specific physical setup requirements on the patient's environment. The camera must be positioned at a fixed height of approximately 1 meter from the ground, aligned horizontally so that the lens is level with the patient's mid-body region. This height ensures that the full body — from shoulders to ankles — falls within the camera's field of view during exercise execution, which is critical for exercises involving lower limb movements such as knee flexion and hip extension.
+The patient must be positioned directly facing the camera with no significant lateral offset, maintaining a frontal orientation throughout the session. This frontal alignment is required because the YOLOv8n-Pose model's keypoint detection performs most reliably on forward-facing subjects, and angular deviation from the frontal plane introduces geometric distortion in the computed joint angles. For supine exercises — such as the extended leg lifts and bed-support knee bends — the camera should be repositioned to a lateral side view at the same height, capturing the sagittal plane of movement where the relevant joint angles are most accurately measured.
+These constraints are communicated to the patient through the Flutter application prior to beginning an exercise session, ensuring that the physical environment is correctly configured before AI analysis is initiated
+
+
+Following the design and analysis of the AI module, the next section evaluates the system through functional and real-time testing scenarios to assess its performance, responsiveness, and practical usability.
