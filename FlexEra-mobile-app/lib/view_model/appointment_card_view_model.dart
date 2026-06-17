@@ -9,7 +9,12 @@ class AppointmentCardViewModel extends ChangeNotifier {
   String dateDisplay = '';
   String timeDisplay = '';
   String doctorImage = '';
+
+  List<dynamic> upcomingAppointments = [];
+  List<dynamic> pastAppointments = [];
+
   bool hasAppointment = false;
+  bool isLoadingHistory = false;
 
   AppointmentCardViewModel() {
     getAppointmentSummary();
@@ -17,6 +22,8 @@ class AppointmentCardViewModel extends ChangeNotifier {
 
   Future<void> getAppointmentSummary() async {
     _loadFromCache();
+    isLoadingHistory = true;
+    notifyListeners();
 
     try {
       final token = CacheHelper.getData(key: 'token');
@@ -26,37 +33,70 @@ class AppointmentCardViewModel extends ChangeNotifier {
         token: token,
       );
 
-      if (response.data['success'] == true &&
-          response.data['appointment'] != null) {
-        final appointment = response.data['appointment'];
-        final doctor = appointment['doctor'];
+      if (response.data['success'] == true) {
+        List<dynamic> allApts = response.data['appointments'] ?? [];
 
-        doctorName = doctor['name'] ?? 'Unknown Doctor';
+        DateTime now = DateTime.now();
+        DateTime today = DateTime(now.year, now.month, now.day);
 
-        jobTitle = 'Specialist';
+        upcomingAppointments = allApts.where((apt) {
+          DateTime aptDate = DateTime.parse(apt['date']);
+          return aptDate.isAfter(today) || _isSameDay(aptDate, today);
+        }).toList();
 
-        doctorImage = doctor['image'] ?? '';
+        pastAppointments = allApts.where((apt) {
+          DateTime aptDate = DateTime.parse(apt['date']);
+          return aptDate.isBefore(today) && !_isSameDay(aptDate, today);
+        }).toList();
 
-        timeDisplay = appointment['time'] ?? '';
-        dateDisplay = _formatDate(appointment['date']);
+        if (upcomingAppointments.isNotEmpty) {
+          upcomingAppointments.sort(
+            (a, b) =>
+                DateTime.parse(a['date']).compareTo(DateTime.parse(b['date'])),
+          );
 
-        hasAppointment = true;
+          final nextApt = upcomingAppointments.first;
+          _updateCardData(nextApt);
+          hasAppointment = true;
 
-        CacheHelper.saveData(key: 'summary_docName', value: doctorName);
-        CacheHelper.saveData(key: 'summary_docImage', value: doctorImage);
-        CacheHelper.saveData(key: 'summary_time', value: timeDisplay);
-        CacheHelper.saveData(key: 'summary_date', value: dateDisplay);
-        CacheHelper.saveData(key: 'summary_has_apt', value: true);
-
-        notifyListeners();
+          _saveToCache();
+        } else {
+          hasAppointment = false;
+          CacheHelper.saveData(key: 'summary_has_apt', value: false);
+        }
       } else {
         hasAppointment = false;
         CacheHelper.saveData(key: 'summary_has_apt', value: false);
-        notifyListeners();
       }
     } catch (e) {
       debugPrint('Error fetching summary: $e');
+    } finally {
+      isLoadingHistory = false;
+      notifyListeners();
     }
+  }
+
+  void _updateCardData(dynamic apt) {
+    final doctor = apt['doctor'] ?? {};
+    doctorName = doctor['name'] ?? 'Unknown Doctor';
+    jobTitle = 'Physiotherapy Session';
+    doctorImage = doctor['image'] ?? '';
+    timeDisplay = apt['time'] ?? '';
+    dateDisplay = _formatDate(apt['date']);
+  }
+
+  bool _isSameDay(DateTime date1, DateTime date2) {
+    return date1.year == date2.year &&
+        date1.month == date2.month &&
+        date1.day == date2.day;
+  }
+
+  void _saveToCache() {
+    CacheHelper.saveData(key: 'summary_docName', value: doctorName);
+    CacheHelper.saveData(key: 'summary_docImage', value: doctorImage);
+    CacheHelper.saveData(key: 'summary_time', value: timeDisplay);
+    CacheHelper.saveData(key: 'summary_date', value: dateDisplay);
+    CacheHelper.saveData(key: 'summary_has_apt', value: true);
   }
 
   void _loadFromCache() {
@@ -73,38 +113,29 @@ class AppointmentCardViewModel extends ChangeNotifier {
   String _formatDate(String? dateStr) {
     if (dateStr == null || dateStr.isEmpty) return '';
     try {
-      final parts = dateStr.split('-');
-      if (parts.length >= 3) {
-        int year = int.parse(parts[0]);
-        int month = int.parse(parts[1]);
-        int day = int.parse(parts[2]);
+      final date = DateTime.parse(dateStr);
+      const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+      const months = [
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Dec',
+      ];
 
-        final date = DateTime(year, month, day);
+      String dayName = days[date.weekday - 1];
+      String monthName = months[date.month - 1];
 
-        const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-        const months = [
-          'Jan',
-          'Feb',
-          'Mar',
-          'Apr',
-          'May',
-          'Jun',
-          'Jul',
-          'Aug',
-          'Sep',
-          'Oct',
-          'Nov',
-          'Dec'
-        ];
-
-        String dayName = days[date.weekday - 1];
-        String monthName = months[date.month - 1];
-
-        return '$dayName, $monthName $day';
-      }
+      return '$dayName, $monthName ${date.day}';
     } catch (e) {
       return dateStr;
     }
-    return dateStr;
   }
 }

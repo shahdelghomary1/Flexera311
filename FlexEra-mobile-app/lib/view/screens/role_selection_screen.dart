@@ -21,132 +21,130 @@ class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundcolor1,
-      body: SafeArea(
-        child: Stack(
-          children: [
-            Positioned(
-              top: -268.3.h,
-              left: 42.6.w,
-              child: Transform.rotate(
-                angle: 260 * 3.14159 / 180,
-                child: Image.asset(
-                  AssetsManager.backgroundBlob,
-                  width: 554.w,
-                  height: 750.h,
-                  fit: BoxFit.contain,
-                ),
-              ),
-            ),
-            Positioned(
-              left: 0,
-              right: 0,
-              bottom: -160.h,
+      body: Stack(
+        children: [
+          Positioned(
+            top: -268.3.h,
+            left: 42.6.w,
+            child: Transform.rotate(
+              angle: 260 * 3.14159 / 180,
               child: Image.asset(
-                AssetsManager.decorativeShape,
-                width: 420.15.w,
-                height: 520.52.h,
+                AssetsManager.backgroundBlob,
+                width: 554.w,
+                height: 750.h,
                 fit: BoxFit.contain,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 0.0),
-              child: Column(
-                children: [
-                  SizedBox(height: 80.w),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 80.w),
-                        child: Text(
-                          'Choose',
-                          style: GoogleFonts.homemadeApple(
-                            fontSize: 48.sp,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.darkpurplecolor,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(right: 95.w),
-                        child: Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            'your role',
-                            style: GoogleFonts.quicksand(
-                              fontSize: 33.sp,
-                              fontWeight: FontWeight.w700,
-                              color: AppColors.blackcolor,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 70.h),
-                  Text(
-                    'Please select your role to continue',
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.quicksand(
-                      fontSize: 16.sp,
-                      color: AppColors.blackcolor.withOpacity(0.8),
-                      fontWeight: FontWeight.w900,
-                    ),
-                  ),
-                  SizedBox(height: 50.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      _buildRoleOption(
-                        context: context,
-                        imagePath: AssetsManager.userGif,
-                        label: 'User',
-                        roleId: 'user',
-                        isSelected: selectedRole == 'user',
-                        onTap: () {
-                          setState(() {
-                            selectedRole = 'user';
-                          });
-
-                          if (mounted) {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => const LoginScreen(),
-                              ),
-                            );
-                          }
-                        },
-                      ),
-                      _buildRoleOption(
-                        context: context,
-                        imagePath: AssetsManager.doctorGif,
-                        label: 'Doctor',
-                        roleId: 'doctor',
-                        isSelected: selectedRole == 'doctor',
-                        onTap: () {
-                          setState(() {
-                            selectedRole = 'doctor';
-                          });
-
-                          if (mounted) {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => const DoctorIdScreen(),
-                              ),
-                            );
-                          }
-                        },
-                      ),
-                    ],
-                  ),
-                  const Spacer(),
-                ],
-              ),
+          ),
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: -160.h,
+            child: Image.asset(
+              AssetsManager.decorativeShape,
+              width: 420.15.w,
+              height: 520.52.h,
+              fit: BoxFit.contain,
             ),
-          ],
-        ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 0.0),
+            child: Column(
+              children: [
+                SizedBox(height: 80.w),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(left: 80.w),
+                      child: Text(
+                        'Choose',
+                        style: GoogleFonts.homemadeApple(
+                          fontSize: 48.sp,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.darkpurplecolor,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(right: 95.w),
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          'your role',
+                          style: GoogleFonts.quicksand(
+                            fontSize: 33.sp,
+                            fontWeight: FontWeight.w700,
+                            color: AppColors.blackcolor,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 70.h),
+                Text(
+                  'Please select your role to continue',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.quicksand(
+                    fontSize: 16.sp,
+                    color: AppColors.blackcolor.withOpacity(0.8),
+                    fontWeight: FontWeight.w900,
+                  ),
+                ),
+                SizedBox(height: 50.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    _buildRoleOption(
+                      context: context,
+                      imagePath: AssetsManager.userGif,
+                      label: 'Patient',
+                      roleId: 'user',
+                      isSelected: selectedRole == 'user',
+                      onTap: () {
+                        setState(() {
+                          selectedRole = 'user';
+                        });
+
+                        if (mounted) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const LoginScreen(),
+                            ),
+                          );
+                        }
+                      },
+                    ),
+                    _buildRoleOption(
+                      context: context,
+                      imagePath: AssetsManager.doctorGif,
+                      label: 'Doctor',
+                      roleId: 'doctor',
+                      isSelected: selectedRole == 'doctor',
+                      onTap: () {
+                        setState(() {
+                          selectedRole = 'doctor';
+                        });
+
+                        if (mounted) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const DoctorIdScreen(),
+                            ),
+                          );
+                        }
+                      },
+                    ),
+                  ],
+                ),
+                const Spacer(),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -193,7 +191,7 @@ class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
                   ],
                 ),
                 child: Padding(
-                  padding: EdgeInsets.all(2.0.r),
+                  padding: EdgeInsets.all(4.0.r),
                   child: Container(
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,

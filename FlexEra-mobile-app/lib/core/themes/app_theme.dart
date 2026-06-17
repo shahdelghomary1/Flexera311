@@ -46,7 +46,7 @@ class AppTheme {
       child: Stack(
         children: [
           Positioned(
-            top: 10.h,
+            // top: 1.h,
             left: -10.w,
             right: -10.w,
             child: Image.asset(
@@ -103,7 +103,7 @@ class AppTheme {
       child: Stack(
         children: [
           Positioned(
-            top: 10.h,
+            // top: 10.h,
             left: -10.w,
             right: -10.w,
             child: Image.asset(
@@ -134,7 +134,7 @@ class AppTheme {
       child: Stack(
         children: [
           Positioned(
-            top: 10.h,
+            // top: 10.h,
             left: -10.w,
             right: -10.w,
             child: Image.asset(
@@ -165,7 +165,7 @@ class AppTheme {
       child: Stack(
         children: [
           Positioned(
-            top: 10.h,
+            // top: 10.h,
             left: -10.w,
             right: -10.w,
             child: Image.asset(
@@ -196,7 +196,7 @@ class AppTheme {
       child: Stack(
         children: [
           Positioned(
-            top: 10.h,
+            // top: 10.h,
             left: -10.w,
             right: -10.w,
             child: Image.asset(
@@ -228,7 +228,7 @@ class AppTheme {
       child: Stack(
         children: [
           Positioned(
-            top: 10.h,
+            // top: 10.h,
             left: -10.w,
             right: -10.w,
             child: Image.asset(

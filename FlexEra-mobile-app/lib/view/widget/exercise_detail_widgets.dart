@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../../core/assets/assets_manager.dart';
 import '../../view_model/exercise_detail_view_model.dart';
+import 'ai_exercise_button.dart';
 
 class ExerciseDetailBody extends StatelessWidget {
   const ExerciseDetailBody({super.key});
@@ -57,7 +58,20 @@ class ExerciseDetailBody extends StatelessWidget {
                           )
                         : const ExerciseStepsList(),
                     SizedBox(height: 40.h),
-                    const ExerciseDetailStartButton(),
+                    // const ExerciseDetailStartButton(),
+                    // SizedBox(height: 20.h),
+                    Consumer<ExerciseDetailViewModel>(
+                      builder: (context, viewModel, _) {
+                        return AiExerciseButton(
+                          exerciseName: viewModel.exerciseName,
+                          exerciseKey: viewModel.exerciseKey,
+
+                          targetSets: viewModel.targetSets ?? 3,
+                          targetReps: viewModel.targetReps ?? 10,
+                          exerciseId: viewModel.exerciseId ?? '',
+                        );
+                      },
+                    ),
                     SizedBox(height: 1000.h),
                   ],
                 ),
@@ -76,10 +90,6 @@ class ExerciseDetailAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    final viewModel = Provider.of<ExerciseDetailViewModel>(
-      context,
-      listen: false,
-    );
 
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
@@ -298,40 +308,40 @@ class ExerciseStepsList extends StatelessWidget {
   }
 }
 
-class ExerciseDetailStartButton extends StatelessWidget {
-  const ExerciseDetailStartButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final viewModel = Provider.of<ExerciseDetailViewModel>(
-      context,
-      listen: false,
-    );
-
-    return GestureDetector(
-      onTap: () => viewModel.onStartPressed(context),
-      child: Container(
-        width: 171.w,
-        height: 38.h,
-        decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: [Color(0xFF590B8D), Color(0xFF786AC8)],
-          ),
-          borderRadius: BorderRadius.circular(14.r),
-        ),
-        child: Center(
-          child: Text(
-            'Start',
-            style: GoogleFonts.quicksand(
-              fontSize: 23.sp,
-              fontWeight: FontWeight.w600,
-              color: Colors.white,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
+// class ExerciseDetailStartButton extends StatelessWidget {
+//   const ExerciseDetailStartButton({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     final viewModel = Provider.of<ExerciseDetailViewModel>(
+//       context,
+//       listen: false,
+//     );
+//
+//     return GestureDetector(
+//       onTap: () => viewModel.onStartPressed(context),
+//       child: Container(
+//         width: 171.w,
+//         height: 38.h,
+//         decoration: BoxDecoration(
+//           gradient: const LinearGradient(
+//             begin: Alignment.centerLeft,
+//             end: Alignment.centerRight,
+//             colors: [Color(0xFF590B8D), Color(0xFF786AC8)],
+//           ),
+//           borderRadius: BorderRadius.circular(14.r),
+//         ),
+//         child: Center(
+//           child: Text(
+//             'Start',
+//             style: GoogleFonts.quicksand(
+//               fontSize: 23.sp,
+//               fontWeight: FontWeight.w600,
+//               color: Colors.white,
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }

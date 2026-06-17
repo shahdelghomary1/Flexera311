@@ -139,19 +139,8 @@ class _PatientsListScreenState extends State<PatientsListScreen> {
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Icon(Icons.wifi_off,
-                                          size: 50.sp, color: Colors.redAccent),
-                                      SizedBox(height: 10.h),
-                                      Text(
-                                        'Connection Failed',
-                                        style: GoogleFonts.quicksand(
-                                          fontSize: 18.sp,
-                                          fontWeight: FontWeight.bold,
-                                          color: isDark
-                                              ? Colors.white
-                                              : Colors.black,
-                                        ),
-                                      ),
+                                      Icon(Icons.no_accounts_outlined,
+                                          size: 50.sp, color: Colors.white24),
                                       SizedBox(height: 5.h),
                                       Padding(
                                         padding: EdgeInsets.symmetric(
@@ -171,6 +160,19 @@ class _PatientsListScreenState extends State<PatientsListScreen> {
                                           _fetchPatients(viewModel);
                                         },
                                         child: const Text('Retry'),
+                                      ),
+                                      Icon(Icons.wifi_off,
+                                          size: 50.sp, color: Colors.redAccent),
+                                      SizedBox(height: 10.h),
+                                      Text(
+                                        'Connection Failed',
+                                        style: GoogleFonts.quicksand(
+                                          fontSize: 18.sp,
+                                          fontWeight: FontWeight.bold,
+                                          color: isDark
+                                              ? Colors.white
+                                              : Colors.black,
+                                        ),
                                       ),
                                     ],
                                   ),

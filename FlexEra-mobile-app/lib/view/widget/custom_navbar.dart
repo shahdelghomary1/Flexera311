@@ -55,16 +55,7 @@ class CustomNavBar extends StatelessWidget {
 
             return GestureDetector(
               onTap: () {
-                if (index == 2) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => AccountInfoScreen(),
-                    ),
-                  );
-                } else {
-                  onTap(index);
-                }
+                onTap(index);
               },
               behavior: HitTestBehavior.opaque,
               child: SizedBox(
@@ -104,8 +95,8 @@ class CustomNavBar extends StatelessWidget {
                             color: isSelected
                                 ? Colors.white
                                 : isDark
-                                    ? AppColors.whiteColor
-                                    : Colors.black,
+                                ? AppColors.whiteColor
+                                : Colors.black,
                           ),
                         ),
                       ),
@@ -121,13 +112,14 @@ class CustomNavBar extends StatelessWidget {
                           labels[index],
                           style: GoogleFonts.lato(
                             fontSize: 12.sp,
-                            fontWeight:
-                                isSelected ? FontWeight.bold : FontWeight.w600,
+                            fontWeight: isSelected
+                                ? FontWeight.bold
+                                : FontWeight.w600,
                             color: isSelected
                                 ? const Color(0xFF6929C4)
                                 : isDark
-                                    ? AppColors.subtitel
-                                    : Colors.black,
+                                ? AppColors.subtitel
+                                : Colors.black,
                           ),
                         ),
                       ),

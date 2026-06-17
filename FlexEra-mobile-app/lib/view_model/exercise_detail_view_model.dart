@@ -1,7 +1,8 @@
+import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../view/screens/exercise_completion_screen.dart';
+import '../view/screens/ai_exercise_screen.dart';
 
 class ExerciseSteps {
   final String name;
@@ -22,6 +23,10 @@ class ExerciseDetailViewModel extends ChangeNotifier {
   String? _exerciseImage;
   List<String> _steps = [];
   bool _isLoading = true;
+  int? targetSets;
+  int? targetReps;
+  String? exerciseId;
+  String? exerciseKey;
 
   List<String> get steps => _steps;
 
@@ -67,11 +72,19 @@ class ExerciseDetailViewModel extends ChangeNotifier {
   }
 
   void onStartPressed(BuildContext context) {
-    debugPrint('Starting exercise: $exerciseName');
+    debugPrint('Starting AI exercise session: $exerciseName');
+
+    final String exerciseKey = exerciseName.toLowerCase().trim().replaceAll(
+      ' ',
+      '_',
+    );
+
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) =>
-            ExerciseCompletionScreen(exerciseName: exerciseName),
+        builder: (context) => AiExerciseScreen(
+          exerciseKey: exerciseKey,
+          exerciseName: exerciseName,
+        ),
       ),
     );
   }

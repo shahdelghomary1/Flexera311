@@ -38,34 +38,14 @@ class AccountInfoViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> pickProfileImage() async {
-    try {
-      final XFile? image = await _picker.pickImage(
-        source: ImageSource.gallery,
-        maxWidth: 512,
-        maxHeight: 512,
-        imageQuality: 85,
-      );
-      if (image != null) {
-        _profileImagePath = image.path;
-        notifyListeners();
-      }
-    } catch (e) {
-      debugPrint('Error picking image: $e');
-    }
+  void setNavIndex(int index) {
+    _selectedNavIndex = index;
+    notifyListeners();
   }
 
-  Future<void> selectDateOfBirth(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: DateTime(2000),
-      firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
-    );
-    if (picked != null) {
-      dateOfBirthController.text =
-          '${picked.day}/${picked.month}/${picked.year}';
-      notifyListeners();
+  String? _validateEmail(String email) {
+    if (!email.endsWith('@gmail.com')) {
+      return 'Email must be a Gmail address (@gmail.com)';
     }
   }
 

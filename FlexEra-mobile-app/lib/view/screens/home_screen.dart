@@ -43,31 +43,19 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: EdgeInsets.only(
               bottom: MediaQuery.of(context).viewInsets.bottom,
             ),
-            child: MoodOverlay(onDismissed: () async {
-              final prefs = await SharedPreferences.getInstance();
-              await prefs.setBool('mood_overlay_seen', true);
-            }),
+            child: MoodOverlay(
+              onDismissed: () async {
+                final prefs = await SharedPreferences.getInstance();
+                await prefs.setBool('mood_overlay_seen', true);
+              },
+            ),
           ),
         );
       }
     });
   }
 
-
   void _onNavBarTapped(int index) {
-    // if (index == 1) {
-    //   showSearchSheet(context);
-    //   return;
-    // }
-    // if (index == 2) {
-    //   Navigator.push(
-    //     context,
-    //     MaterialPageRoute(
-    //       builder: (context) => AccountInfoScreen(),
-    //     ),
-    //   );
-    //   return;
-    // }
     setState(() {
       _currentIndex = index;
     });
@@ -105,8 +93,10 @@ class _HomeScreenState extends State<HomeScreen> {
           if (_showMoodOverlay) MoodOverlay(onDismissed: _dismissOverlay),
         ],
       ),
-      bottomNavigationBar:
-      CustomNavBar(currentIndex: _currentIndex, onTap: _onNavBarTapped),
+      bottomNavigationBar: CustomNavBar(
+        currentIndex: _currentIndex,
+        onTap: _onNavBarTapped,
+      ),
     );
   }
 }

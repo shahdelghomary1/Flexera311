@@ -167,4 +167,32 @@ class MyExercisesViewModel extends ChangeNotifier {
     CacheHelper.saveStringList(
         key: _completedExercisesKey, value: completedIds);
   }
+
+  Future<void> markExerciseAsCompleted(String exerciseId) async {
+    if (_currentPlan?.exerciseItems == null) return;
+
+    try {
+      final exercise = _currentPlan!.exerciseItems!.firstWhere(
+            (e) => e.id == exerciseId,
+      );
+
+      exercise.isCompleted = true;
+
+      _saveLocalProgress();
+      notifyListeners();
+
+      await DioHelper.postData(
+        url: EndPoints.isCompleted,
+        token: token,
+        data: {
+          'exercise_id': exerciseId,
+          'is_completed': true,
+        },
+      );
+
+      debugPrint('✅ Exercise marked completed');
+    } catch (e) {
+      debugPrint('❌ Failed to mark completed: $e');
+    }
+  }
 }
